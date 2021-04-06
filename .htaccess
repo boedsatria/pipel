@@ -1,6 +1,6 @@
 RewriteEngine on
 
-#RewriteCond $1 !^(index\.php|assets|fonts|vendor|uploads)
+RewriteCond $1 !^(index\.php|assets|fonts|vendor|uploads)
 #Your public folder names
 
 RewriteCond %{REQUEST_FILENAME} !-f
