@@ -34,7 +34,6 @@ class Rukun_tetangga extends CI_Controller {
 
         $data = array(
             'page' => 'add',
-            'rukun_warga'   => $this->model_rukun_warga->get()->result(),
             'row' => $rukun_tetangga,
             'p'   => $id
         );
@@ -49,8 +48,8 @@ class Rukun_tetangga extends CI_Controller {
             
             $data = array(
                 'page' => 'edit',
-                'rukun_warga'   => $this->model_rukun_warga->get()->result(),
-                'row' => $rukun_tetangga
+                'row' => $rukun_tetangga,
+                'p'   => $id
             );
             $this->template->load('backend/template', 'backend/admin/rt_add', $data);
         } else {

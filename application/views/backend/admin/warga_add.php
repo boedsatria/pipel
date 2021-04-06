@@ -39,27 +39,12 @@
               <?php // echo validation_errors(); ?>
               <form action="<?=site_url('warga/process/'.$p)?>" method="post" enctype="multipart/form-data">
                     <div class="card-body">
-                        <div class="form-group">
-                            <label>Nama RT *</label>
-                            <select name="rt_domisili" class="form-control">
-                              <option></option>
-                              <?php
-                              
-                              foreach($rt as $r): 
-                                $selected = "";
-                                if ($r->id_rt == $p) $selected = "selected";
-                              ?>
-                                <option value="<?= $r->id_rt ?>" <?= $selected ?>><?= $r->nama_rt ?></option>
-                              <?php endforeach; ?>
-                            </select>
-                        </div>
-
 
                         <div class="form-group">
                             <label>No. Kartu Keluarga</label>
+                            <input type="hidden" name="rt_domisili" value="<?=$p?>" />
                             <input type="text"  name="nokk_warga" value="<?=$row->nokk_warga?>" class="form-control" required>
                         </div>
-
 
                         <div class="form-group">
                             <label>Alamat</label>

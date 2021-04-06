@@ -84,7 +84,7 @@
                             <a href="<?=site_url('rukun_tetangga/edit/'.$data->id_rt)?>" class="btn btn-success btn-xs">
                               <i class="fa fa-pencil-alt"> </i> Update
                                 </a>
-                              <a href="<?=site_url('rukun_tetangga/del/'.$data->id_rt)?>" 
+                              <a href="<?=site_url('rukun_tetangga/del/'.$data->id_rt. '/'. $data->parent_rt)?>" 
                               onclick="return confirm('Data akan Dihapus?')" class="btn btn-danger btn-xs">
                                 <i class="fa fa-trash-alt"> </i> Delete
                                   </a>

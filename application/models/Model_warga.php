@@ -4,16 +4,25 @@ class Model_warga extends CI_Model {
 
     // start datatables
     var $column_order = 
-    array(null, 'email_warga', 'telp_warga', 'alamat_warga', 
-    'nokk_warga', 'rt_domisili', 'fotokk_warga', 'status_warga'); 
+    array(null, 'nama_anggota', 'ktp_anggota', 'nokk_warga', 'nama_rt', 
+    'nama_rw', 'nama_kelurahan', 'nama_kecamatan', 'nama_wilayah', null); 
+
+    var $column_search = 
+    array('nama_anggota', 'ktp_anggota', 'nokk_warga', 'nama_rt', 
+    'nama_rw', 'nama_kelurahan', 'nama_kecamatan', 'nama_wilayah'); 
     //set column field database for datatable orderable
 
     var $order = array('id_warga' => 'asc'); // default order
 
     private function _get_datatables_query() {
-        $this->db->select('warga.*, rt.nama_rt as rt_domisili');
-        $this->db->from('warga');
-        $this->db->join('rt', 'warga.rt_domisili = rt.nama_rt');
+        $this->db->select('*');
+        $this->db->from('anggota_keluarga');
+        $this->db->join('warga', 'warga.id_warga = anggota_keluarga.parent_anggota');
+        $this->db->join('rt', 'rt.id_rt = warga.rt_domisili');
+        $this->db->join('rw', 'rw.id_rw = rt.parent_rt');
+        $this->db->join('kelurahan', 'kelurahan.id_kelurahan = rw.parent_rw');
+        $this->db->join('kecamatan', 'kecamatan.id_kecamatan = kelurahan.parent_kelurahan');
+        $this->db->join('wilayah', 'wilayah.id_wilayah = kecamatan.parent_kecamatan');
 
         $i = 0;
         foreach ($this->column_search as $warga) { // loop column
@@ -50,7 +59,7 @@ class Model_warga extends CI_Model {
         return $query->num_rows();
     }
     function count_all() {
-        $this->db->from('warga');
+        $this->db->from('anggota_keluarga');
         return $this->db->count_all_results();
     }
     // end datatables

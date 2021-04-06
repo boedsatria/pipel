@@ -32,7 +32,6 @@ class Rukun_warga extends CI_Controller {
 
         $data = array(
             'page' => 'add',
-            'kelurahan'   => $this->model_kelurahan->get()->result(),
             'row' => $rukun_warga,
             'p'   => $id
         );
@@ -47,7 +46,6 @@ class Rukun_warga extends CI_Controller {
 
             $data = array(
             'page' => 'edit',
-            'kelurahan'   => $this->model_kelurahan->get()->result(),
             'row'  => $rukun_warga,
             'p'    => $id
             );

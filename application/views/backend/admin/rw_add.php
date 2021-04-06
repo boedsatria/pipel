@@ -16,6 +16,8 @@
       </div><!-- /.container-fluid -->
     </section>
 
+    <?php $p = ($page == "edit" ? $row->parent_rw : $p); ?>
+
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -38,6 +40,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Nama Rukun Warga *</label>
+                            <input type="hidden" name="parent_rw" value="<?=$p?>" />
                             <input type="hidden" name="id" value="<?=$row->id_rw?>" />
                             <input type="text"  name="nama_rw" 
                             value="<?=$row->nama_rw?>" class="form-control" required>

@@ -38,23 +38,10 @@
               <?php // echo validation_errors(); ?>
               <form action="<?=site_url('kelurahan/process/'.$p)?>" method="post">
                     <div class="card-body">
-                    <div class="form-group">
-                            <label>Nama Kelurahan *</label>
-                            <select name="parent_kelurahan" class="form-control">
-                              <option></option>
-                              <?php
-                              
-                              foreach($kecamatan as $w): 
-                                $selected = "";
-                                if ($w->id_kecamatan == $p) $selected = "selected";
-                              ?>
-                                <option value="<?= $w->id_kecamatan ?>" <?= $selected ?>><?= $w->nama_kecamatan ?></option>
-                              <?php endforeach; ?>
-                            </select>
-                        </div>
 
                         <div class="form-group">
                             <label>Nama Kelurahan / Desa Setempat *</label>
+                            <input type="hidden" name="parent_kelurahan" value="<?=$p?>" />
                             <input type="hidden" name="id" value="<?=$row->id_kelurahan?>" />
                             <input type="text"  name="nama_kelurahan" value="<?=$row->nama_kelurahan?>" class="form-control" required>
                         </div>

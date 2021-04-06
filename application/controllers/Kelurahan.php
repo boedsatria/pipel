@@ -34,7 +34,6 @@ class Kelurahan extends CI_Controller {
         $data = array(
             'page' => 'add',
             'row' => $kelurahan,
-            'kecamatan'   => $this->model_kecamatan->get()->result(),
             'p'   => $id
         );
         $this->template->load('backend/template', 'backend/admin/kelurahan_add', $data);
@@ -49,7 +48,6 @@ class Kelurahan extends CI_Controller {
             $data = array(
                 'page' => 'edit',
                 'row' => $kelurahan,
-                'kecamatan'   => $this->model_kecamatan->get()->result(),
                 'p'   => $id
             );
             $this->template->load('backend/template', 'backend/admin/kelurahan_add', $data);
@@ -62,6 +60,7 @@ class Kelurahan extends CI_Controller {
     {
         $post = $this->input->post(null, TRUE);
         $back = $post['parent_kelurahan'];
+       // print_r($post);die;
         if(isset($_POST['add'])) {
             $this->model_kelurahan->add($post);
         } else if(isset($_POST['edit'])) {

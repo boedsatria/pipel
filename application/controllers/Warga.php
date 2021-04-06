@@ -18,17 +18,15 @@ class Warga extends CI_Controller
             $no++;
             $row = array();
             $row[] = $no.".";
-            $row[] = $warga->email_warga;
-            $row[] = $warga->telp_warga;
-            $row[] = $warga->alamat_warga;
-            $row[] = $warga->rt_domisili;
+            $row[] = $warga->nama_anggota;
+            $row[] = $warga->ktp_anggota;
             $row[] = $warga->nokk_warga;
+            $row[] = $warga->nama_rt;
+            $row[] = $warga->nama_rw;
+            $row[] = $warga->nama_kelurahan;
+            $row[] = $warga->nama_kecamatan;
+            $row[] = $warga->nama_wilayah;
 
-            $row[] = $warga->fotokk_warga 
-            != null ? '<img src="'.base_url('uploads/foto_kk/'.$warga->fotokk_warga).'" class="img" 
-            style="width:100px">' : null;
-            
-            $row[] = $warga->status;
             // add html for action
             $row[] = '<a href="'.site_url('warga/edit/'.$warga->id_warga).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Update</a>
                     <a href="'.site_url('warga/del/'.$warga->id_warga).'" onclick="return confirm(\'Yakin hapus data?\')"  class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>';
@@ -47,14 +45,13 @@ class Warga extends CI_Controller
     public function index()
     {
         $data['row'] = $this->Model_warga->get();
-        $this->template->load('backend/template', 'backend/admin/warga_data', $data);
+        $this->template->load('backend/template', 'backend/admin/data_warga', $data);
     }
 
     public function list($id = FALSE)
     {
         // print_r($this->Model_warga->anggota($id));die;
         $data['row'] = $this->Model_warga->anggota($id);
-       
         $data['detail'] = $this->Model_warga->get($id)->row_array();
         $this->template->load('backend/template', 'backend/admin/warga_detail', $data);
     }
@@ -83,10 +80,6 @@ class Warga extends CI_Controller
         $data = array(
             'page'      => 'add',
             'row'       => $warga,
-            
-            //KIRIM LIST RT
-            'rt'        => $this->Model_rukun_tetangga->get_rt_sibling($id, 'add')->result(),
-            
             'p'         => $id
         );
         $this->template->load('backend/template', 'backend/admin/warga_add', $data);
@@ -123,10 +116,6 @@ class Warga extends CI_Controller
             $data = array(
                 'page'      => 'edit',
                 'row'       => $warga,
-            
-                //KIRIM LIST RT
-                'rt'        => $this->Model_rukun_tetangga->get_rt_sibling($id, 'edit')->result(),
-
                 'p'         => $id
             );
             $this->template->load('backend/template', 'backend/admin/warga_add', $data);

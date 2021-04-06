@@ -70,24 +70,35 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="<?=site_url('warga')?>" class="nav-link">
+                  <i class="nav-icon far fa-circle nav-icon"></i>
+                  <p>Lihat Warga</p>
+                </a>
+              </li>
+            
               <li class="nav-item">
                 <a href="<?=site_url('Laporan_kelurahan')?>" class="nav-link">
                   <i class="nav-icon far fa-circle nav-icon"></i>
                   <p>Area per Kelurahan/Desa</p>
                 </a>
               </li>
+
               <li class="nav-item">
                 <a href="<?=site_url('Laporan_rw')?>" class="nav-link">
                   <i class="nav-icon far fa-circle nav-icon"></i>
                   <p>Area per RW</p>
                 </a>
               </li>
+
               <li class="nav-item">
                 <a href="pages/forms/editors.html" class="nav-link">
                   <i class="nav-icon far fa-circle nav-icon"></i>
                   <p>Area per RT</p>
                 </a>
               </li>
+              
             </ul>
           </li>
 
