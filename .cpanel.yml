@@ -1,6 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/u4814692/public_html/pipel/
-    - /bin/cp -R * $DEPLOYPATH
-    
