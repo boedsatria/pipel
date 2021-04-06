@@ -10,6 +10,20 @@
 $(function () {
   'use strict'
 
+  $('#tabel_warga').DataTable({
+    responsive: true,
+        "destroy": true,
+        "processing": true,
+        "serverSide": true,
+        "lengthMenu": [[10, 25, 50, 100, 500, -1], [10, 25, 50, 100, 500, "All"]],
+        "order": [],
+
+        "ajax": {
+            "url": "warga/get_ajax",
+            "type": "POST"
+        },
+});
+
   // Make the dashboard widgets sortable Using jquery UI
   $('.connectedSortable').sortable({
     placeholder: 'sort-highlight',
