@@ -42,11 +42,7 @@
                       <th>Nama</th>
                       <th>No KTP</th>
                       <th>No KK</th>
-                      <th>RT</th>
-                      <th>RW</th>
-                      <th>Kelurahan</th>
-                      <th>Kecamatan</th>
-                      <th>Wilayah</th>
+                      <th>Alamat</th>
                       <th style="width: 150px; text-align: center;">Action</th>
                     </tr>
                   </thead>

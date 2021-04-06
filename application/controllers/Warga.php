@@ -18,18 +18,16 @@ class Warga extends CI_Controller
             $no++;
             $row = array();
             $row[] = $no.".";
-            $row[] = $warga->nama_anggota;
+            $row[] = '<a href="'.site_url('warga/list_anggota/'.$warga->id_anggota).'">'.$warga->nama_anggota.'</a>';
             $row[] = $warga->ktp_anggota;
             $row[] = $warga->nokk_warga;
-            $row[] = $warga->nama_rt;
-            $row[] = $warga->nama_rw;
-            $row[] = $warga->nama_kelurahan;
-            $row[] = $warga->nama_kecamatan;
-            $row[] = $warga->nama_wilayah;
+            $row[] = $warga->alamat_warga.' '.$warga->nama_rt. ' / '.$warga->nama_rw.'</br>
+                        Kelurahan / Desa '.$warga->nama_kelurahan. ', Kecamatan '.$warga->nama_kecamatan.'</br>'
+                        .$warga->nama_wilayah;
 
             // add html for action
-            $row[] = '<a href="'.site_url('warga/edit/'.$warga->id_warga).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Update</a>
-                    <a href="'.site_url('warga/del/'.$warga->id_warga).'" onclick="return confirm(\'Yakin hapus data?\')"  class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>';
+            $row[] = '<a href="'.site_url('warga/edit_anggota/'.$warga->id_anggota).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Update</a>
+                    <a href="'.site_url('warga/edit_anggota/'.$warga->id_anggota).'" onclick="return confirm(\'Yakin hapus data?\')"  class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>';
             $data[] = $row;
         }
         $output = array(
@@ -318,7 +316,7 @@ class Warga extends CI_Controller
                 }
                 // die;
             }
-            redirect('warga/list/'.$back);
+            redirect('warga/list_anggota/'.$id);
         } 
         if (isset($_POST['edit'])) {
         
@@ -366,7 +364,7 @@ class Warga extends CI_Controller
                 }
             }
             
-            redirect('warga/list/'.$back);
+            redirect('warga/list_anggota/'.$post['id']);
         }
     }
 

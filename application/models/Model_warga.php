@@ -4,8 +4,7 @@ class Model_warga extends CI_Model {
 
     // start datatables
     var $column_order = 
-    array(null, 'nama_anggota', 'ktp_anggota', 'nokk_warga', 'nama_rt', 
-    'nama_rw', 'nama_kelurahan', 'nama_kecamatan', 'nama_wilayah', null); 
+    array(null, 'nama_anggota', 'ktp_anggota', 'nokk_warga', 'nama_wilayah', null); 
 
     var $column_search = 
     array('nama_anggota', 'ktp_anggota', 'nokk_warga', 'nama_rt', 
